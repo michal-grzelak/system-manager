@@ -8,12 +8,18 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    disko,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -64,6 +70,7 @@
 
         modules = [
           ./definitions.nix
+          disko.nixosModules.disko
           ./hosts/${host}/configuration.nix
           home-manager.nixosModules.home-manager
           ({config, ...}: {

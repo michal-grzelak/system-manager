@@ -9,12 +9,14 @@
   imports = [
     # Include the results of the hardware scan.
     ./setup.nix
+    ./disko.nix
     ./hardware-configuration.nix
   ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.devices = ["/dev/nvme0n1"];
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -96,6 +98,8 @@
       gnumake
       git
       vscode
+      parted
+      gptfdisk
       #  thunderbird
     ];
   };
