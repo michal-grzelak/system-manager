@@ -16,7 +16,10 @@ in {
         set -U fish_greeting;
       '';
       interactiveShellInit = ''
-        # test
+        # user init
+
+        # add bun to path
+        fish_add_path "/home/grzekuu/.cache/.bun/bin"
       '';
 
       plugins = [

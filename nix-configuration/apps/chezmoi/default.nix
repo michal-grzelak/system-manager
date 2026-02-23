@@ -5,7 +5,7 @@
 }: let
   inherit (common) utils;
 in {
-  programs.claude-code = {
-    enable = true;
-  };
+  home.packages = with pkgs; [
+    chezmoi
+  ];
 }

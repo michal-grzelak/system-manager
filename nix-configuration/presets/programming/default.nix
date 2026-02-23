@@ -12,7 +12,6 @@ in {
     ../../apps/neovim
     ../../apps/gh
     ../../apps/mongo-tools
-    ../../apps/opencode
-    ../../apps/claudecode
+    ../../apps/chezmoi
   ];
 }
